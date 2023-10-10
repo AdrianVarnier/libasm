@@ -3,6 +3,7 @@ section .text
 
 _ft_strcmp:
     xor rcx, rcx
+    xor rax, rax
 
 check_end:
     cmp BYTE[rdi + rcx], 0
@@ -20,5 +21,4 @@ loop:
 
 end:
     sub al, BYTE[rsi + rcx]
-    pop al
     ret
