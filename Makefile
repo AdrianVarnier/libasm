@@ -12,6 +12,7 @@ ARFLAGS= rcs
 
 SRC=	ft_strlen.s \
 		ft_strcmp.s \
+		ft_strcpy.s \
 
 OBJ= $(SRC:.s=.o)
 
@@ -21,7 +22,7 @@ OBJ= $(SRC:.s=.o)
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(LNAME)
+$(NAME): $(LNAME) main.o
 	$(CC) $(CFLAGS) main.c -c -o main.o -L $(LNAME)
 	$(CC) $(CFLAGS) -o $(NAME) main.o $(LNAME)
 
