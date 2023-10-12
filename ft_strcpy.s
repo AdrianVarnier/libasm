@@ -8,7 +8,7 @@ _ft_strcpy:
     call _ft_strlen
     pop rdi
     mov ecx, eax
-    add ecx, 1
+    inc ecx
     mov rax, rdi
     rep movsb
     ret
