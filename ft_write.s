@@ -1,6 +1,6 @@
 section .text
     global ft_write
-    extern ___error
+    extern __errno_location
 
 ft_write:
     mov rax, 1
@@ -10,9 +10,9 @@ ft_write:
     ret
 
 error:
-    push rax
-    pop r8
-    call ___error
+    neg rax
+    mov r8, rax
+    call __errno_location wrt ..plt
     mov [rax], r8
     mov rax, -1
     ret
