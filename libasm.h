@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stdio.h>
 
 ssize_t ft_strlen(const char* s);
 int     ft_strcmp(const char* s1, const char* s2);
