@@ -3,13 +3,14 @@ section .text
     extern malloc
 
 ft_list_push_front:
-    push rsp
-    push rdi
     push rsi
+    push rdi
     mov rdi, 16
+    sub rsp, 8
     call malloc wrt ..plt
-    pop rsi
+    add rsp, 8
     pop rdi
+    pop rsi
     cmp rax, 0
     jz return
     mov [rax], rsi
@@ -17,6 +18,5 @@ ft_list_push_front:
     mov qword [rax + 8], rsi
     mov [rdi], rax
 
-return:    
-    pop rsp
+return:
     ret
