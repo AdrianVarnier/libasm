@@ -45,8 +45,8 @@ bonus: $(LNAME_B) main_bonus.o
 	$(CC) $(CFLAGS) main_bonus.c -c -o main_bonus.o -L $(LNAME_B)
 	$(CC) $(CFLAGS) -o $(NAME_B) main_bonus.o $(LNAME_B)
 
-$(LNAME_B): $(OBJ_B)
-	$(AR) $(ARFLAGS) $(LNAME_B) $(OBJ_B)
+$(LNAME_B): $(OBJ_B) $(OBJ)
+	$(AR) $(ARFLAGS) $(LNAME_B) $(OBJ_B) $(OBJ)
 
 .PHONY: clean
 clean:
