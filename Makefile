@@ -24,6 +24,7 @@ OBJ= $(SRC:.s=.o)
 SRC_B=	ft_list_size.s \
 		ft_list_push_front.s \
 		ft_list_sort.s \
+		ft_list_remove_if.s \
 
 OBJ_B= $(SRC_B:.s=.o)
 

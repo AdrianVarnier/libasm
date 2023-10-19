@@ -1,5 +1,15 @@
 #include "libasm_bonus.h"
 
+void    print_list(t_list* l)
+{
+    while (l != NULL)
+    {
+        printf("%s\n", (char *)l->data);
+        l = l->next;
+    }
+    return;
+}
+
 int main()
 {
     t_list  *l1 = NULL;
@@ -22,39 +32,29 @@ int main()
 
     //ft_list_push_front
     printf("ft_list_push_front 1, 2, 3, 2, 4:\n");
-    printf("%s\n", (char *)l1->data);
-    printf("%s\n", (char *)l1->next->data);
-    printf("%s\n", (char *)l1->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->next->data);
+    print_list(l1);
     printf("\n");
 
     //ft_list_sort
     ft_list_sort(&l2, (*ft_strcmp));
     ft_list_sort(&l1, NULL);
     printf("ft_list_sort cmp = null:\n");
-    printf("%s\n", (char *)l1->data);
-    printf("%s\n", (char *)l1->next->data);
-    printf("%s\n", (char *)l1->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->next->data);
+    print_list(l1);
     printf("\n");
     ft_list_sort(&l1, (*ft_strcmp));
     printf("ft_list_sort unordered list:\n");
-    printf("%s\n", (char *)l1->data);
-    printf("%s\n", (char *)l1->next->data);
-    printf("%s\n", (char *)l1->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->next->data);
+    print_list(l1);
     printf("\n");
     ft_list_sort(&l1, (*ft_strcmp));
     printf("ft_list_sort ordered list:\n");
-    printf("%s\n", (char *)l1->data);
-    printf("%s\n", (char *)l1->next->data);
-    printf("%s\n", (char *)l1->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->data);
-    printf("%s\n", (char *)l1->next->next->next->next->data);
+    print_list(l1);
     printf("\n");
+
+    //ft_list_remove_if
+    printf("ft_list_remove_if first element:\n");
+    ft_list_remove_if(&l1, "content 1", (*ft_strcmp), (*free));
+    ft_list_remove_if(&l1, "content 2", (*ft_strcmp), (*free));
+    print_list(l1);
 
     return (0);
 }

@@ -1,37 +1,49 @@
 section .text
     global ft_list_sort
 
+; Use RDI, RSI, RBX, R8, R9, R10, R11
+
 ft_list_sort:
     cmp qword [rdi], 0  ; check NULL parameters
-    jz return
+    jz return1
     cmp qword rsi, 0
-    jz return
-    mov r10, rsi        ; save cmp function in r10
-    mov r11, [rdi]      ; save begin in r11
+    jz return1
+    mov rbx, rsi        ; rbx = cmp
+    push rdi            ; save begin
 
 start:
-    mov r12, r11        ; start from the begining of the list
-    jmp loop
+    pop rdi
+    mov r8, [rdi]        ; init at begin
+    push rdi
 
 loop:
-    inc r8
-    mov r13, [r12 + 8]  ; increment next list
-    cmp r13, 0          ; check end
-    jz return
-    mov rdi, [r12]      ; call cmp(actual, next)
-    mov rsi, [r13]
-    call r10
+    mov r9, [r8 + 8]    ; increment list
+    cmp r9, 0           ; check end
+    jz return2
+    mov rdi, [r8]       ; call cmp(actual, next)
+    mov rsi, [r9]
+    push r8
+    push r9
+    push rbx
+    call rbx
+    pop rbx
+    pop r9
+    pop r8
     cmp eax, 0          ; if ret > 0, swap list data
     jg swap
-    mov r12, r13        ; increment actual list
+    mov r8, r9          ; increment actual list
     jmp loop
 
 swap:
-    mov r14, [r12]      ; swap actual and next data
-    mov r15, [r13]
-    mov [r12], r15
-    mov [r13], r14
+    mov r10, [r8]      ; swap actual and next data
+    mov r11, [r9]
+    mov [r8], r11
+    mov [r9], r10
     jmp start
 
-return:
+return1:
+    ret
+
+return2:
+    pop rdi
     ret
