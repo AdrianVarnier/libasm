@@ -12,19 +12,21 @@ CFLAGS= -Wall -Wextra -Werror
 AR= ar
 ARFLAGS= rcs
 
-SRC=	ft_strlen.s \
-		ft_strcmp.s \
-		ft_strcpy.s \
-		ft_strdup.s \
-		ft_read.s \
-		ft_write.s \
+SRC=	srcs/ft_strlen.s \
+		srcs/ft_strcmp.s \
+		srcs/ft_strcpy.s \
+		srcs/ft_strdup.s \
+		srcs/ft_read.s \
+		srcs/ft_write.s \
 
 OBJ= $(SRC:.s=.o)
 
-SRC_B=	ft_list_size.s \
-		ft_list_push_front.s \
-		ft_list_sort.s \
-		ft_list_remove_if.s \
+SRC_B=	srcs_bonus/ft_atoi_base.s \
+		srcs_bonus/ft_list_size.s \
+		srcs_bonus/ft_list_push_front.s \
+		srcs_bonus/ft_list_sort.s \
+		srcs_bonus/ft_list_remove_if.s \
+		utils_bonus/ft_str_check_dup.s \
 
 OBJ_B= $(SRC_B:.s=.o)
 

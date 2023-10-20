@@ -67,5 +67,24 @@ int main()
     print_list(l1);
     printf("\n");
 
+    //ft_atoi_base
+    // char s1[] = "+2";
+    // char *s2 = NULL;
+    // char s3[] = "-2";
+    // char b1[] = "01";
+    // char *b2 = NULL;
+    // char b3[] = "1";
+    // char b4[] = "11";
+    // printf("%d\n", ft_atoi_base(s2, b1));
+    // printf("%d\n", ft_atoi_base(s1, b2));
+    // printf("%d\n", ft_atoi_base(s1, b3));
+    char s1[] = "abcd";
+    char s2[] = "abccd";
+    char s3[] = "abcdd";
+    char s4[] = "aabcd";
+    printf("%d\n", ft_str_check_dup(s1));
+    printf("%d\n", ft_str_check_dup(s2));
+    printf("%d\n", ft_str_check_dup(s3));
+    printf("%d\n", ft_str_check_dup(s4));
     return (0);
 }
