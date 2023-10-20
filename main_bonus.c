@@ -2,6 +2,8 @@
 
 void    print_list(t_list* l)
 {
+    if (l == NULL)
+        printf("list is empty\n");
     while (l != NULL)
     {
         printf("%s\n", (char *)l->data);
@@ -51,10 +53,19 @@ int main()
     printf("\n");
 
     //ft_list_remove_if
-    printf("ft_list_remove_if first element:\n");
-    ft_list_remove_if(&l1, "content 1", (*ft_strcmp), (*free));
-    ft_list_remove_if(&l1, "content 2", (*ft_strcmp), (*free));
+    printf("ft_list_remove_if double element:\n");
+    ft_list_remove_if(&l1, "content 2", (*strcmp), (*free));
     print_list(l1);
+    printf("\n");
+    printf("ft_list_remove_if first element:\n");
+    ft_list_remove_if(&l1, "content 1", (*strcmp), (*free));
+    print_list(l1);
+    printf("\n");
+    printf("ft_list_remove_if last element:\n");
+    ft_list_remove_if(&l1, "content 4", (*strcmp), (*free));
+    ft_list_remove_if(&l1, "content 3", (*strcmp), (*free));
+    print_list(l1);
+    printf("\n");
 
     return (0);
 }

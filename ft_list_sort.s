@@ -1,7 +1,7 @@
 section .text
     global ft_list_sort
 
-; Use RDI, RSI, RBX, R8, R9, R10, R11
+; Used registers: RDI, RSI, RBX, R8, R9, R10, R11
 
 ft_list_sort:
     cmp qword [rdi], 0  ; check NULL parameters
