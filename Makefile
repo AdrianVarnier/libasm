@@ -26,7 +26,9 @@ SRC_B=	srcs_bonus/ft_atoi_base.s \
 		srcs_bonus/ft_list_push_front.s \
 		srcs_bonus/ft_list_sort.s \
 		srcs_bonus/ft_list_remove_if.s \
-		utils_bonus/ft_str_check_dup.s \
+		utils_bonus/ft_check_base.s \
+		utils_bonus/ft_is_base.s \
+		utils_bonus/ft_get_base_value.s \
 
 OBJ_B= $(SRC_B:.s=.o)
 
